@@ -1,11 +1,13 @@
 package com.udea.bancoudea.controller;
 
 import com.udea.bancoudea.DTO.CustomerDTO;
+import com.udea.bancoudea.entity.Customer;
 import com.udea.bancoudea.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/customers")
@@ -31,6 +33,7 @@ public class CustomerController {
 //Crear un nuevo cliente
     @PostMapping
     public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
+
         if(customerDTO.getBalance() == null) {
             throw new IllegalArgumentException("Balance cannot be null");
         }

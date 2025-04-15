@@ -51,6 +51,8 @@ public class TransactionService {
         transaction.setSenderAccountNumber(sender.getAccountNumber());
         transaction.setReceiverAccountNumber(receiver.getAccountNumber());
         transaction.setAmount(transactionDTO.getAmount());
+        //Setear timestamp
+        transaction.setTimestamp(transactionDTO.getTimestamp());
         transaction= transactionRepository.save(transaction);
 
         //Devolver la transaccion creada como un DTO
